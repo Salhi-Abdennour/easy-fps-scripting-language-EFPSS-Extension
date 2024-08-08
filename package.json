@@ -1,0 +1,25 @@
+{
+  "name": "efpss",
+  "displayName": "Easy FPS Editor Script Language Support",
+  "description": "Supoorting the scripting language of Easy FPS eaditor",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.91.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "efpss",
+      "aliases": ["easy fps scripting language", "efpss"],
+      "extensions": [".script"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "efpss",
+      "scopeName": "source.efpss",
+      "path": "./syntaxes/efpss.tmLanguage.json"
+    }]
+  }
+}

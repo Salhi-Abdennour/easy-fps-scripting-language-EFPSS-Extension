@@ -1,0 +1,135 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "easy fps scripting language",
+	"patterns": [
+		{
+			"include": "#pointer"
+		},
+		{
+			"include": "#commands"
+		},
+		{
+			"include": "#subcommands"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#call-procedure"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#procedure-declaration"
+		},
+		{
+			"include": "#global"
+		},
+		{
+			"include": "#map"
+		},
+		{
+			"include": "#local-variables"
+		},
+		{
+			"include": "#numbers"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.control.efpss",
+				"match": "\\b(on|off|if|else|end|return|quickreturn|keeptrigger|show|text|hide|timeout|auto|call|pause|halt|vn|preload|font|bg|button|label|bind)\\b"
+			}]
+		},
+		"comments":{
+			"patterns": [{
+				"name": "comment.line.double-slash.efpss",
+				"match": "//.*$"
+			}]
+		},
+		"strings": {
+			"name": "string.quoted.double.efpss",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.efpss",
+					"match": "\\\\."
+				}
+			]
+		},
+		"global": {
+			"patterns": [
+				{
+					"name": "entity.name.class.efpss",
+					"match": "\\bglobal(?=\\.)"
+				}
+			]
+		},
+		"map": {
+			"patterns": [
+				{
+					"name": "entity.name.class.efpss",
+					"match": "\\bmap(?=\\.)"
+				}
+			]
+		},
+		"local-variables": {
+			"name": "variable.local",
+			"match": "\\b[a-zA-Z][a-zA-Z0-9]*\\b"
+		},
+		"procedure-declaration": {
+			"patterns": [
+				{
+					"name": "storage.efpss",
+					"match": "\\bprocedure\\b"
+				},
+				{
+					"name": "support.function.efpss",
+					"match": "(?<=procedure\\s)[A-Za-z][A-Za-z0-9]*"
+				}
+			]
+		},
+		"pointer":{
+			"name":"storage.efpss",
+			"match": "\\$\\b"
+		},
+		"call-procedure":{
+			"name": "support.function.efpss",
+			"match": "(?<=call\\s)[A-Za-z][A-Za-z0-9]*"
+		},
+		"numbers":{
+			"name": "constant.numeric",
+			"match": "-?\\b\\d+(\\.\\d*)?([eE][-+]?\\d+)?\\b"
+		},
+		"operators": {
+			"name": "keyword.operator.efpss",
+			"match": "\\+\\+|--|\\*=|-=|/=|%=|\\+=|="
+		},
+		"commands": {
+			"patterns": [
+				{
+					"name": "storage",
+					"match": "\\b(map(?!\\.)|(player|entity|door|light|status|give|take|cursor|shader|game|gravity|weapon|hud|sound|play|stop|move|front|back|image|key|holster|hp|maxhp|armour|maxarmour|mag|heldweapon|position))\\b"
+				}
+			]
+		},
+		"subcommands": {
+			"patterns": [
+				{
+					"name": "entity.name.function.efpss",
+					"match": "\\b(start|next|goto|heal|hurt|teleport|move|rotation|retro|turn|steps|speed|sethp|setmaxhp|givearmour|takearmour|setarmour|setmaxarmour|cancrouch|canjump|height|zoom|camspeed|check|delete|me|spawnat|spawnatpos|open|close|lock|unlock|create|status|weapon|ammo|set|save|load|maxammo|magsize|damage|firerate|bullets|reloadspeed|projectilespeed|explosion|recoil|spread|recoilrecovery|range|RANDOM|sound|music|video|sounds)\\b"
+				}
+			]
+		}
+	},
+	"scopeName": "source.efpss"
+}
